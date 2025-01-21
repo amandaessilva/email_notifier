@@ -88,3 +88,6 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+    
+    - name: Ajustar permissões do brakeman
+        run: chmod +x bin/brakeman
