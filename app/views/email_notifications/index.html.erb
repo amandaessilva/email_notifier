@@ -1,0 +1,19 @@
+<h1>Agendar Email</h1>
+<%= form_with url: email_notifications_path, local: true do |f| %>
+  <label>Email:</label>
+  <%= f.email_field :email %><br>
+  
+  <label>Mensagem:</label>
+  <%= f.text_area :message %><br>
+
+  <%= f.submit "Enviar" %>
+<% end %>
+
+<h2>Emails Agendados</h2>
+<ul>
+  <% @notifications.each do |notification| %>
+    <li><strong><%= notification.email %></strong>: <%= notification.status %></li>
+  <% end %>
+</ul>
+
+<a href="/sidekiq" target="_blank">Ver Jobs no Sidekiq</a>
